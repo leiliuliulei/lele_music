@@ -1,0 +1,52 @@
+/* 让html和body元素高度占满整个视口 */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* 整体页面按列布局，先让标题在最上方，下方再分左右两栏 */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header {
+    text-align: center;
+    padding: 10px;
+    background-color: #ccc; /* 可以根据喜好调整标题背景色 */
+}
+
+/* 主要内容区域（包含导航栏和展示区）占满剩余空间 */
+.content {
+    flex: 1;
+    display: flex;
+}
+
+/* 左侧导航栏，放置曲子名称列表 */
+nav {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto; /* 当内容超出时出现纵向滚动条 */
+}
+
+main {
+    flex: 1;
+    padding: 10px;
+    overflow: auto; /* 当内容超出时出现滚动条 */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    cursor: pointer;
+    padding: 5px 0;
+}

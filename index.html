@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古典吉他曲谱</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- 添加标题区域，位于页面最上方 -->
+    <header>
+        <h1>乐乐琴房</h1>
+    </header>
+    <!-- 主要内容区域，包含导航栏和展示区，按行布局（左右分布） -->
+    <div class="content">
+        <!-- 左侧导航栏，放置曲子名称列表 -->
+        <nav>
+            <ul>
+                <li data-pdf="塔雷佳A大调练习曲.pdf">塔雷佳A大调练习曲</li>
+                <li data-pdf="天堂电影院.pdf">天堂电影院</li>
+                <li data-pdf="遇见-G调.pdf">遇见-G调</li>
+            </ul>
+        </nav>
+        <!-- 中间主区域，用来展示PDF文件 -->
+        <main>
+
+        </main>
+    </div>
+    <script>
+        // 获取所有的曲子名称列表项
+        const songItems = document.querySelectorAll('nav ul li');
+        // 获取主展示区域元素
+        const mainArea = document.querySelector('main');
+
+        songItems.forEach(item => {
+            item.addEventListener('click', function () {
+                const pdfFileName = this.getAttribute('data-pdf');
+                // 创建一个iframe元素用来嵌入PDF文件
+                const iframe = document.createElement('iframe');
+                iframe.src = pdfFileName;
+                iframe.width = "100%";
+                iframe.height = "600px";  // 可以根据实际情况调整高度
+                // 先清空之前可能存在的内容
+                mainArea.innerHTML = '';
+                mainArea.appendChild(iframe);
+            });
+        });
+    </script>
+</body>
+
+</html>
