@@ -41,14 +41,11 @@
                 const iframe = document.createElement('iframe');
                 iframe.src = pdfFileName;
                 iframe.width = "100%";
+                iframe.height = "1100px";
                 // 先清空之前可能存在的内容
                 mainArea.innerHTML = '';
                 mainArea.appendChild(iframe);
 
-                // 加载完成后获取PDF的高度并设置iframe的高度
-                iframe.onload = function () {
-                    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-                };
             });
         });
     </script>
